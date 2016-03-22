@@ -175,11 +175,11 @@ ssl_certificate /etc/letsencrypt.sh/certs/<span class="yellow">letsencrypt.tw</s
 ssl_certificate_key /etc/letsencrypt.sh/certs/<span class="yellow">letsencrypt.tw</span>/privkey.pem;
 </pre>
 
-<p>然後重新啟動 Apache 或是 nginx：</p>
+<p>然後重新載入 Apache 或是 nginx 的設定檔 （或是直接重新啟動）：</p>
 
 <pre>
 # echo "for Apache"
-# service nginx apache2
+# service apache2 reload
 </pre>
 
 <pre>
