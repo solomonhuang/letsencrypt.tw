@@ -62,7 +62,15 @@ fjs.parentNode.insertBefore(js, fjs);
 
 <h5>限制</h5>
 
-<p>Let's Encrypt 目前處於 Public Beta 階段，有發行數量限制，請參考「<a href="https://community.letsencrypt.org/t/rate-limits-for-lets-encrypt/6769">Rate Limits for Let's Encrypt</a>」這邊的說明。</p>
+<p>Let's Encrypt 目前已經正式開放，但有發行數量限制，一般人可能會遇到的：
+<ul>
+    <li>Names/Certificate：單一 certificate 限制 100 個 hostname。</li>
+    <li>Certificates/Domain：每個 domain 每個禮拜最多 20 個 certificate，但 renew 不計算在 quota 內 (需要憑證內的 hostname 與之前完全一樣)。</li>
+    <li>Certificates/FQDNset：相同 hostame 的憑證每個禮拜最多發出五個。。</li>
+</ul>
+</p>
+
+<p>最新的資訊以及完整的細節請參考「<a href="https://community.letsencrypt.org/t/rate-limits-for-lets-encrypt/6769">Rate Limits for Let's Encrypt</a>」這邊的說明。</p>
 
 <h5>安裝過程</h5>
 
