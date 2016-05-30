@@ -106,10 +106,10 @@ $ curl -LO https://raw.githubusercontent.com/lukas2511/letsencrypt.sh/master/let
 # cp ~/letsencrypt.sh/letsencrypt.sh /etc/letsencrypt.sh/
 </pre>
 
-<p>設定 <code>config.sh</code> 並且建立對應的目錄：</p>
+<p>設定 <code>config</code> 並且建立對應的目錄：</p>
 
 <pre>
-# echo "WELLKNOWN=/var/www/letsencrypt" &gt; /etc/letsencrypt.sh/config.sh
+# echo "WELLKNOWN=/var/www/letsencrypt" &gt; /etc/letsencrypt.sh/config
 # mkdir -p /var/www/letsencrypt
 </pre>
 
@@ -136,7 +136,7 @@ location /.well-known/acme-challenge/ {
 <p>成功的話會有類似的輸出：</p>
 
 <pre>
-# INFO: Using main config file /etc/letsencrypt.sh/config.sh
+# INFO: Using main config file /etc/letsencrypt.sh/config
 Processing letsencrypt.tw
  + Signing domains...
  + Generating private key...
@@ -213,7 +213,7 @@ ssl_certificate_key /etc/letsencrypt.sh/certs/<span class="yellow">letsencrypt.t
 
 <p>選用 letsencrypt.sh 而非官方的 <a href="https://github.com/letsencrypt/letsencrypt">letsencrypt client</a> 是因為 letsencrypt.sh 的需求相當低，只需要有 curl 與 <a href="https://www.openssl.org/">openssl</a> 就可以執行，相較於官方版本需要 <a href="https://www.python.org/">Python</a> 無論是對於初學者或是想要自動化的系統管理者都會比較輕鬆。</p>
 
-<p>放到 <code>/etc/letsencrypt.sh/</code> 下的目的是避免之後各作業系統有提供 letsencrypt.sh 的套件而衝突到 (套件通常都會把可執行檔放到 <code>/usr/bin</code> 或是 <code>/usr/sbin</code> 下)，另外一方面 letsencrypt.sh 會吃同一個目錄下的 <code>config.sh</code>，這對於設定上可以少一些功夫。</p>
+<p>放到 <code>/etc/letsencrypt.sh/</code> 下的目的是避免之後各作業系統有提供 letsencrypt.sh 的套件而衝突到 (套件通常都會把可執行檔放到 <code>/usr/bin</code> 或是 <code>/usr/sbin</code> 下)，另外一方面 letsencrypt.sh 會吃同一個目錄下的 <code>config</code>，這對於設定上可以少一些功夫。</p>
 
 <p>在 cron job 裡面每天執行是因為 letsencrypt.sh 會自己檢查憑證有效期限，如果還有一個月以上的時間有效就不會 renew，所以不需要擔心每天執行會造成 Let's Encrypt 的伺服器產生負擔。</p>
 
